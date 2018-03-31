@@ -1,5 +1,5 @@
 language: android
-sudo: true # y tho
+sudo: true
 
 env:
   global:
@@ -37,7 +37,7 @@ install:
   
 before_deploy:
   - chmod +x scripts/changelog.sh
-  - cp app/build/outputs/apk/release/*.apk TelegramXMods-$TRAVIS_BUILD_NUMBER.apk
+  - cp app/build/outputs/apk/release/*.apk TelegramXEmojis-$TRAVIS_BUILD_NUMBER.apk
 
 deploy:
   - provider: script

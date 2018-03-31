@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
-          package="mods.skittles.telegramx"
+          package="emojis.skittles.telegramx"
           android:installLocation="internalOnly">
 
     <uses-permission android:name="com.android.vending.CHECK_LICENSE"/>
     <uses-permission android:name="android.permission.INTERNET" />
 	
 	<uses-feature
-        android:name="mods.skittles.telegramx"
+        android:name="emojis.skittles.telegramx"
         android:required="false" /> <!-- Set to true for OMS-rom only block to be enabled -->
 
     <application
@@ -21,7 +21,7 @@
         tools:ignore="GoogleAppIndexingWarning"
         android:extractNativeLibs="false">
 
-        <activity android:name="mods.skittles.telegramx.SubstratumLauncher">
+        <activity android:name="emojis.skittles.telegramx.SubstratumLauncher">
             <intent-filter>
                 <action android:name="projekt.substratum.THEME"/>
                 <category android:name="android.intent.category.DEFAULT"/>

@@ -36,9 +36,9 @@ android {
     }
     signingConfigs {
         travis {
-            storeFile file("TGXMods.jks")
+            storeFile file("TGXemojis.jks")
             storePassword System.getenv("storepass")
-            keyAlias "tgxmods"
+            keyAlias "tgxemojis"
             keyPassword System.getenv("keypass")
 
         }
@@ -47,7 +47,7 @@ android {
     defaultConfig {
         // If you're planning to change up the package name, ensure you have read the readme
         // thoroughly!
-        applicationId "mods.skittles.telegramx"
+        applicationId "emojis.skittles.telegramx"
         // We are only supporting Nougat and above, all new changes will incorporate Nougat changes
         // to the substratum repo rather than anything lower. Keep targetSdkVersion the same.
         minSdkVersion 24
