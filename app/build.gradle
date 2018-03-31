@@ -38,7 +38,7 @@ android {
         travis {
             storeFile file("TGXMods.jks")
             storePassword System.getenv("storepass")
-            keyAlias "tgxemojis"
+            keyAlias "tgxmods"
             keyPassword System.getenv("keypass")
 
         }
