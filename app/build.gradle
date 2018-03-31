@@ -36,7 +36,7 @@ android {
     }
     signingConfigs {
         travis {
-            storeFile file("TGXemojis.jks")
+            storeFile file("TGXMods.jks")
             storePassword System.getenv("storepass")
             keyAlias "tgxemojis"
             keyPassword System.getenv("keypass")
