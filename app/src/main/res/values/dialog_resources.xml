@@ -9,6 +9,6 @@
     <string name="launch_dialog_title">TGXEmojis</string>
     <string name="launch_dialog_content">Enjoy the theme!</string>
     <string name="launch_dialog_positive">Ok</string>
-    <string name="launch_dialog_negative" 'Support group'/>
-    <string name="launch_dialog_negative_url" 'https://t.me/TGXModsSupport'/>
+    <string name="launch_dialog_negative" />
+    <string name="launch_dialog_negative_url">[Support group](https://t.me/TGXModsSupport)</string>
 </resources>
