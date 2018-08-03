@@ -15,6 +15,10 @@ android:
     - android-${COMPILE_SDK_VERSION} # For building
     - extra-android-m2repository # Support library
 
+cache:
+  directories:
+    - spritegenerator/emojidata
+
 # whitelist
 branches:
   only:
@@ -22,13 +26,20 @@ branches:
 
 before_install:
   - chmod +x gradlew
+  - chmod +x build.sh
+  - curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+  - sudo add-apt-repository --yes ppa:deadsnakes/ppa
+  - sudo apt-get update
 
-script: ./gradlew assembleRelease
+script: ./build.sh
 
 install:
   - sdkmanager --list || true # Debug / Observation
   - echo y | sdkmanager "platforms;android-27"
   - avdmanager --list || true  # Debug / Observation
+  - sudo apt-get install -y nodejs
+  - sudo apt-get install -y python3.6
+  - curl https://bootstrap.pypa.io/get-pip.py | sudo python3.6
   
 before_deploy:
   - chmod +x scripts/changelog.sh

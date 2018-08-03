@@ -1,8 +1,7 @@
 # coding: utf-8
 from PIL import Image, ImageDraw
 from math import ceil
-import json
-from emoji_data_python import emoji_data
+import json, re, sys
 
 DEBUG = False
 
@@ -33,7 +32,10 @@ for a in range(len(emojiToFE0F)):
 version = 12
 size = 64
 scale = 2.0
-kind = 'google'
+if len(sys.argv) > 1:
+    kind = sys.argv[1]
+else:
+    kind = 'google'
 
 infos = []
 
@@ -54,19 +56,22 @@ for x in range(len(sprites)):
         top = int((i7 * size) + i10)
         right = int(((i8 + 1) * size) + i9)
         bottom = int(((i7 + 1) * size) + i10)
-        unified = ''
         emoji = sprite[j]
-        a = 0
-        for ch in emoji:
-            if ord(ch) in emojiToFE0F:
+        for a in range(len(emoji)):
+            if ord(emoji[a]) in emojiToFE0F:
                 if len(emoji) > 1:
                     emoji = emoji[:a] + '\uFE0F' + emoji[a]
                 else:
                     emoji = emoji[a] + '\uFE0F'
         unified = ''
         for char in emoji:
-            unified += '-{:x}'.format(ord(char))
-        infos[x][y].append({'unified':  unified[1:],'width': (dimensions[x][y] * size),'height':(i7 * size),'sheet': f'v{version}_emoji{scale}x_{x}_{y}', 'index': j, 'left': left, 'top': top, 'right': right, 'bottom': bottom})
+            part = '{:x}'.format(ord(char))
+            if (len(part) < 3):
+                part = ("0" * (4 - len(part))) + part + "-fe0f"
+            unified += f'-{part}'
+        unified = re.sub(r'(-fe0f)+', r'-fe0f', unified)
+        unified = unified[1:]
+        infos[x][y].append({'unified':  unified,'width': (dimensions[x][y] * size),'height':(i7 * size),'sheet': f'v{version}_emoji{scale}x_{x}_{y}', 'index': j, 'left': left, 'top': top, 'right': right, 'bottom': bottom})
 
 notFound = 0
 for sprite in infos:
@@ -83,12 +88,18 @@ for sprite in infos:
                 emoji_img = emoji_img.resize((size, size))
             except FileNotFoundError as e:
                 try:
-                    emoji_img = Image.open(f'emojidata/node_modules/emoji-datasource-{kind}/img/{kind}/64/{emoji["unified"]}-fe0f.png', 'r')
+                    unified = emoji["unified"].replace('-fe0f', '').replace('fe0f-', '')
+                    emoji_img = Image.open(f'emojidata/node_modules/emoji-datasource-{kind}/img/{kind}/64/{unified}.png', 'r')
                     emoji_img = emoji_img.resize((size, size))
                 except FileNotFoundError as e:
-                    emoji_img = original_img.crop((int(emoji['left']), int(emoji['top']), int(emoji['left']) + size, int(emoji['top']) + size))
-                    notFound += 1
-                    print(f'No image found for {emoji["unified"]} in {kind}')
+                    try:
+                        unified = emoji["unified"].replace('-fe0f', '').replace('fe0f-', '')
+                        emoji_img = Image.open(f'emojidata/node_modules/emoji-datasource-{kind}/img/{kind}/64/{unified}-fe0f.png', 'r')
+                        emoji_img = emoji_img.resize((size, size))
+                    except FileNotFoundError as e:
+                        emoji_img = original_img.crop((int(emoji['left']), int(emoji['top']), int(emoji['left']) + size, int(emoji['top']) + size))
+                        notFound += 1
+                        print(f'No image found for {emoji["unified"]} in {kind}')
             img.paste(emoji_img, (int(emoji['left']), int(emoji['top']), int(emoji['left']) + size, int(emoji['top']) + size))
         img.save(f'out/{sheet[0]["sheet"]}.png', format='png', optimize=True)
 
