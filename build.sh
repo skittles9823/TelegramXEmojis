@@ -9,6 +9,7 @@ npm install emoji-datasource-google
 npm install emoji-datasource-twitter
 npm install emoji-datasource-facebook
 npm install emoji-datasource-messenger
+npm install emoji-datasource-emojione
 
 cd .. # spritegenerator
 python3.6 -m pip install -r requirements.txt --user
@@ -23,6 +24,9 @@ mv out/* ../app/src/main/assets/overlays/org.thunderdog.challegram/type4_›_Mes
 echo "Messenger emojis built"
 python3.6 tgxspritegen.py facebook
 mv out/* ../app/src/main/assets/overlays/org.thunderdog.challegram/type4_›_Facebook_Emojis/emoji
+echo "Facebook emojis built"
+python3.6 tgxspritegen.py emojione
+mv out/* ../app/src/main/assets/overlays/org.thunderdog.challegram/type4_›_EmojiOne_Emojis/emoji
 echo "Facebook emojis built"
 
 cd .. # root directory
