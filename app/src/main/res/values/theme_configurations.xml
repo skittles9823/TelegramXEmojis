@@ -20,5 +20,14 @@
     <string name="ThemeHeroOverride">auto</string>
     <!-- Put your theme changelog here, each item will be a new bullet point in the sheet -->
     <string-array name="ThemeChangelog">
+        <item>Update theme dialogue</item>
+        <item>Revamp existing emojis</item>
+        <item>Add Facebook emojis</item>
+        <item>Add Facebook Messenger emojis</item>
+        <item>Improve emoji sheet generation</item>
+        <item>Add EmojiOne emojis</item>
+        <item>Add Blob (Nougat) emojis</item>
+        <item></item>
+        <item>Bugs | skittles9832@gmail.com</item>
     </string-array>
 </resources>

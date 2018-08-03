@@ -7,8 +7,8 @@
       ~ Add word in launch_dialog_negative to add a cancel button on the dialog
       -->
     <string name="launch_dialog_title">Telegram X Emojis</string>
-    <string name="launch_dialog_content">Enjoy the theme!</string>
-    <string name="launch_dialog_positive">Sure!</string>
+    <string name="launch_dialog_content">Enjoy the theme!\n\nPlease, join the support group if you have any issues</string>
+    <string name="launch_dialog_positive">Proceed</string>
     <string name="launch_dialog_negative">Support Group</string>
     <string name="launch_dialog_negative_url">https://t.me/TGXThemed</string>
 </resources>
