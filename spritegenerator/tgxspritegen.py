@@ -3,6 +3,8 @@ from PIL import Image, ImageDraw
 from math import ceil
 from abomimoji import abominate
 import json, re, sys
+import numpy as np
+import png
 
 DEBUG = False
 
@@ -106,7 +108,7 @@ for sprite in infos:
                         notFound += 1
                         print(f'No image found for {emoji["unified"]} in {kind}')
             img.paste(emoji_img, (int(emoji['left']), int(emoji['top']), int(emoji['left']) + size, int(emoji['top']) + size))
-        img.save(f'out/{sheet[0]["sheet"]}.png', format='png', optimize=True)
+        png.from_array(np.asarray(img, np.uint8), 'RGBA').save(f'out/{sheet[0]["sheet"]}.png')
 
 print(f'{notFound} not found')
 
