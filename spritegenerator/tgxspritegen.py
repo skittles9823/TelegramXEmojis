@@ -1,6 +1,7 @@
 # coding: utf-8
 from PIL import Image, ImageDraw
 from math import ceil
+from abomimoji import abominate
 import json, re, sys
 
 DEBUG = False
@@ -84,8 +85,12 @@ for sprite in infos:
                 d.rectangle([int(emoji['left']), int(emoji['top']), int(emoji['left']) + size, int(emoji['top']) + size], fill=(255,255,255))
                 d.text((int(emoji['left']), int(emoji['top'])), str(emoji['index']), fill=(255, 0, 0))
             try:
-                emoji_img = Image.open(f'emojidata/node_modules/emoji-datasource-{kind}/img/{kind}/64/{emoji["unified"]}.png', 'r')
-                emoji_img = emoji_img.resize((size, size))
+                if (kind == 'abomimoji' or True):
+                    emoji_img = original_img.crop((int(emoji['left']), int(emoji['top']), int(emoji['left']) + size, int(emoji['top']) + size))
+                    emoji_img = abominate(emoji_img)
+                else:
+                    emoji_img = Image.open(f'emojidata/node_modules/emoji-datasource-{kind}/img/{kind}/64/{emoji["unified"]}.png', 'r')
+                    emoji_img = emoji_img.resize((size, size))
             except FileNotFoundError as e:
                 try:
                     unified = emoji["unified"].replace('-fe0f', '').replace('fe0f-', '')

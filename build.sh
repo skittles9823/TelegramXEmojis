@@ -49,6 +49,9 @@ echo "Facebook emojis built"
 python3.6 tgxspritegen.py emojione
 mv out/* ../app/src/main/assets/overlays/org.thunderdog.challegram/type4_›_EmojiOne_Emojis/emoji
 echo "EmojiOne emojis built"
+python3.6 tgxspritegen.py abomimoji
+mv out/* ../app/src/main/assets/overlays/org.thunderdog.challegram/type4_›_Abomimoji/emoji
+echo "Abomimoji built"
 
 cd emojidata
 npm install emoji-datasource-google@3.0.0

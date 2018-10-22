@@ -106,3 +106,5 @@ Thumbs.db
 #############################################################################
 spritegenerator/emojidata
 spritegenerator/out
+
+__pycache__
