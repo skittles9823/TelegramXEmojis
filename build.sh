@@ -9,7 +9,6 @@ npm install emoji-datasource-google
 npm install emoji-datasource-twitter
 npm install emoji-datasource-facebook
 npm install emoji-datasource-messenger
-npm install emoji-datasource-emojione
 
 if [[ "$(uname -s)" == MINGW* ]]; then
     echo "Setting python alias"
