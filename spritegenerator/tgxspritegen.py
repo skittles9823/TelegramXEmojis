@@ -31,7 +31,7 @@ for a in range(len(emojiToFE0F)):
     emojiToFE0FMap[emojiToFE0F[a]] = True
 
 version = 13
-size = 64
+size = 66
 scale = 2.0
 if len(sys.argv) > 1:
     kind = sys.argv[1]
@@ -85,7 +85,7 @@ for sprite in infos:
                 d.rectangle([int(emoji['left']), int(emoji['top']), int(emoji['left']) + size, int(emoji['top']) + size], fill=(255,255,255))
                 d.text((int(emoji['left']), int(emoji['top'])), str(emoji['index']), fill=(255, 0, 0))
             try:
-                if (kind == 'abomimoji' or True):
+                if (kind == 'abomimoji'):
                     emoji_img = original_img.crop((int(emoji['left']), int(emoji['top']), int(emoji['left']) + size, int(emoji['top']) + size))
                     emoji_img = abominate(emoji_img)
                 else:
