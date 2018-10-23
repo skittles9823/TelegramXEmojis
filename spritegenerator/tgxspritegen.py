@@ -5,6 +5,7 @@ from abomimoji import abominate
 import json, re, sys
 import numpy as np
 import png
+import os
 
 DEBUG = False
 
@@ -108,7 +109,20 @@ for sprite in infos:
                         notFound += 1
                         print(f'No image found for {emoji["unified"]} in {kind}')
             img.paste(emoji_img, (int(emoji['left']), int(emoji['top']), int(emoji['left']) + size, int(emoji['top']) + size))
-        png.from_array(np.asarray(img, np.uint8), 'RGBA').save(f'out/{sheet[0]["sheet"]}.png')
+        filename = f'out/{sheet[0]["sheet"]}.png'
+        filenametmp = f'{filename}.tmp'
+        img.save(filenametmp, format='png')
+        tmp = png.Reader(filenametmp)
+        w = png.Writer(size=original_img.size, alpha=True, compression=9, bitdepth=6)
+        x, y, pixels, meta = tmp._as_rescale(tmp.asRGBA, 6)
+        # "close" the reader
+        tmp = None
+        with open(filename, 'wb') as out:
+            w.write(out, pixels)
+        try:
+            os.remove(filenametmp)
+        except PermissionError as e:
+            print('Couldn\'t delete the tmp file')
 
 print(f'{notFound} not found')
 
