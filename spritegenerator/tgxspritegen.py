@@ -1,11 +1,11 @@
 # coding: utf-8
 from PIL import Image, ImageDraw
 from math import ceil
-from abomimoji import abominate
 import json, re, sys
 import numpy as np
 import png
 import os
+import saint
 
 DEBUG = False
 
@@ -90,7 +90,7 @@ for sprite in infos:
             try:
                 if (kind == 'abomimoji'):
                     emoji_img = original_img.crop((int(emoji['left']), int(emoji['top']), int(emoji['left']) + size, int(emoji['top']) + size))
-                    emoji_img = abominate(emoji_img)
+                    emoji_img = saint.nuke(emoji_img)
                 else:
                     emoji_img = Image.open(f'emojidata/node_modules/emoji-datasource-{kind}/img/{kind}/64/{emoji["unified"]}.png', 'r')
                     emoji_img = emoji_img.resize((size, size))
