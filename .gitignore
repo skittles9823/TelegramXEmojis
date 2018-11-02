@@ -104,5 +104,8 @@ Thumbs.db
 #############################################################################
 # Sprite Generator
 #############################################################################
+!spritegenerator/emojidata/node_modules/emoji-datasource-emojione/*
 spritegenerator/emojidata
 spritegenerator/out
+
+__pycache__
