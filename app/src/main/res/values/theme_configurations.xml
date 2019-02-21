@@ -4,12 +4,12 @@
     <string name="ThemeAuthor">Skittles9823 x Friends</string>
     <!-- Your email for bug reports (DEFAULT: empty) -->
     <!--suppress CheckTagEmptyBody -->
-    <string name="ThemeAuthorEmail"></string>
+    <string name="ThemeAuthorEmail">skittles9823@gmail.com</string>
     <!-- Theme wallpaper source (must be raw) -->
     <string name="ThemeWallpaperSource"></string>
     <!-- Do your theme support substratum legacy? -->
-    <!-- If you choose not to support legacy, then change line 12 in AndroidManifest.xml -->
-    <!-- from 'false' to 'true' to hide your theme on the Play Store from any stock ROM-->
+    <!-- If you choose not to support legacy, then change the following line from -->
+    <!-- 'true' to 'false' to hide your theme on the Play Store from any stock ROM-->
     <bool name="ThemeSupportLegacy">true</bool>
     <!-- Does your theme support substratum samsung? -->
     <bool name="ThemeSupportSamsung">true</bool>
@@ -20,10 +20,9 @@
     <string name="ThemeHeroOverride">auto</string>
     <!-- Put your theme changelog here, each item will be a new bullet point in the sheet -->
     <string-array name="ThemeChangelog">
-        <item>Update emojis to work with TGX 1010</item>
-        <item>Add Abomomimoji</item>
-        <item>Lower APK size</item>
-        <item>SAINT™</item>
+        <item>Update theme template</item>
+        <item>Emoji updates</item>
+        <item>Restore PNGs to default resolution</item>
         <item></item>
         <item>Bugs | skittles9832@gmail.com</item>
     </string-array>
