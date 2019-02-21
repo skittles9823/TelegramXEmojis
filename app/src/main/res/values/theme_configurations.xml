@@ -4,7 +4,7 @@
     <string name="ThemeAuthor">Skittles9823 x Friends</string>
     <!-- Your email for bug reports (DEFAULT: empty) -->
     <!--suppress CheckTagEmptyBody -->
-    <string name="ThemeAuthorEmail"></string>
+    <string name="ThemeAuthorEmail">skittles9823@gmail.com</string>
     <!-- Theme wallpaper source (must be raw) -->
     <string name="ThemeWallpaperSource"></string>
     <!-- Do your theme support substratum legacy? -->
@@ -20,13 +20,9 @@
     <string name="ThemeHeroOverride">auto</string>
     <!-- Put your theme changelog here, each item will be a new bullet point in the sheet -->
     <string-array name="ThemeChangelog">
-        <item>Update theme dialogue</item>
-        <item>Revamp existing emojis</item>
-        <item>Add Facebook emojis</item>
-        <item>Add Facebook Messenger emojis</item>
-        <item>Improve emoji sheet generation</item>
-        <item>Add EmojiOne emojis</item>
-        <item>Add Blob (Nougat) emojis</item>
+        <item>Update theme template</item>
+        <item>Emoji updates</item>
+        <item>Restore PNGs to default resolution</item>
         <item></item>
         <item>Bugs | skittles9832@gmail.com</item>
     </string-array>
