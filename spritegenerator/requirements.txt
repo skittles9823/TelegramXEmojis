@@ -1,4 +1,2 @@
 pillow==5.2.0
 saint==0.0.1
-pypng
-numpy
