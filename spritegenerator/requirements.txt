@@ -1,2 +1,2 @@
-pillow==9.0.0
+pillow==9.0.1
 saint==0.0.1
